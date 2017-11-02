@@ -1,16 +1,19 @@
-# Example1
+# Scala
 
-This simple project is a very basic project, which is a basic packaging of the hello world program for scala.
+This material relates to learning about and messing around with Scala
 
-Use this example as a way of making sure your environment is all working nicely.
+# Where to start
+
+- `cd example1` to dive into the hello world example
+- `sbt` to start up the build System
+  - `clean` to flush out built artifacts
+  - `test` to build and test everything
+  - `exit` to exit the sbt shell
+
 
 # Things to note
 
-- The source tree folder. Its' the same layout as a maven folder. Compiled assets being placed in the  [target](./target) folder.
-- The [test code](./src/test/scala/HelloWorldTest.scala) is using the [FeatureSpec](http://www.scalatest.org/getting_started_with_feature_spec) so that it reads well. Not quite BDD but getting there.
-- It uses[sbt](http://www.scala-sbt.org/) to build and test the code.
-
-# To build and run tests
+# To build and run tests whenever anything changes
 ```
 sbt "~ ;clean ;test"
 ```
@@ -19,8 +22,7 @@ Using the above syntax causes a build and test demon to be started. It looks for
 # Other stuff
 
 ### Accreditation
-This work, "example1", is a derivative of ["BasicScalaSbtProjectWithScalatest"](https://github.com/alvinj/BasicScalaSbtProjectWithScalatest) by Alvin Alexander, used under CC BY.
-"example1" is licensed under CC BY by Mike Cobbett.
+This work, "scala" is licensed under CC BY 3.0 by Mike Cobbett.
 
 ### License
 See [here](./LICENSE.md)

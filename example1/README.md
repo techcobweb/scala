@@ -10,12 +10,6 @@ Use this example as a way of making sure your environment is all working nicely.
 - The [test code](./src/test/scala/HelloWorldTest.scala) is using the [FeatureSpec](http://www.scalatest.org/getting_started_with_feature_spec) so that it reads well. Not quite BDD but getting there.
 - It uses[sbt](http://www.scala-sbt.org/) to build and test the code.
 
-# To build and run tests
-```
-sbt "~ ;clean ;test"
-```
-Using the above syntax causes a build and test demon to be started. It looks for changed files, and re-runs compile and test phases when it notices anything.
-
 # Other stuff
 
 ### Accreditation
