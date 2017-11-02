@@ -1,4 +1,4 @@
-organization := "net.thecobbett.scala"
+organization := "techcobweb.scala"
 name := "examples1"
 version := "1.0"
 
