@@ -17,4 +17,4 @@ Use this example as a way of making sure your environment is all working nicely.
 - "example1" is licensed under CC BY by Mike Cobbett.
 
 ### License
-See [here](./LICENSE.md)
+See [here](../LICENSE.md)

@@ -1,5 +1,5 @@
 organization := "techcobweb.scala"
-name := "examples1"
+name := "example020"
 version := "1.0"
 
 scalaVersion := Option(System.getProperty("scala.version")).getOrElse("2.11.4")
