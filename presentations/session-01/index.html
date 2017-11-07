@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal" >
+			<div class="slides" >
+        <section data-markdown>
+          <p>Comparison of Scala with Java</p>
+        </section>
+				<section>
+          <section>
+            <h4>The Basics</h4>
+          </section>
+
+
+        <section>
+          <h4>Package</h4>
+          <p>Java</p>
+          <pre><code class="java small-code" >
+package myPackage
+          </code></pre>
+          <p>Scala</p>
+          <pre><code class="scala" >
+package myPackage
+          </code></pre>
+        </section>
+
+        <section>
+          <h4>Folder structure</h4>
+          <ul>
+            <li>Java:</li>
+            <p>Folder structure matches package structure</p>
+            <li>Scala:</li>
+            <p>Any folder structure. Unrelated to package structure</p>
+            <p>Any file can be in any package regardless of folder</p>
+          </ul>
+        </section>
+
+        <section>
+          <h4>Imports</h4>
+          <p>Java</p>
+          <pre><code class="java"  >
+import java.util.Map
+import java.util.List
+import java.io.*
+          </code></pre>
+          <p>Scala</p>
+          <pre><code class="scala"  >
+import java.util.map
+import java.util.List
+import java.io._
+import java.lang.reflect.{Member,Field,Method}
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h4>Immutable variable declaration</h4>
+          <p>Java</p>
+          <pre><code class="java" >
+final String name = "Shusaku"
+          </code></pre>
+          <p>Scala</p>
+          <pre><code class="scala" >
+val name : String = "Shusaku"
+          </code></pre>
+        </section>
+
+        <section>
+          <h4>Mutable variable declaration</h4>
+          <p>Java</p>
+          <pre><code class="java" >
+String name = "Shusaku"
+name = "Go Seigen"
+          </code></pre>
+          <p>Scala</p>
+          <pre><code class="scala" >
+var name : String = "Shusaku"
+name = "Go Seigen"
+          </code></pre>
+          <p>or</p>
+          <pre><code class="scala" >
+var name = "Shusaku"
+          </code></pre>
+        </section>
+
+        <section>
+          <p>Primitive Type Equivalents</p>
+          <table width="100%">
+            <thead>
+              <tr>
+                <th style="text-align:center">Java</th>
+                <th style="text-align:center">Scala</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="text-size:70%">
+                <td>
+<pre><code class="java" data-trim >
+byte
+short
+int
+long
+float
+double
+boolean
+</pre></code>
+                </td>
+                <td>
+<pre><code class="scala" data-trim >
+Byte
+Short
+Int
+Long
+Float
+Double
+Boolean
+</pre></code>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h4>Comments</h4>
+          <ul>
+            <li>Comments are the same as in Java</li>
+            <li>JavaDoc syntax is supported by ScalaDoc tool</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>Methods/Functions</h4>
+          <p>Java</p>
+          <pre><code class="java" >
+public int sum( int a , int b ) {
+  return a+b
+}
+          </pre></code>
+          <p>Scala</p>
+          <pre><code class="scala" >
+def sum( a: Int , b:Int ) : Int = {
+  a+b
+}
+          </pre></code>
+        </section>
+
+      </section>
+        <section>
+          <section>
+					  <p>Java Bean</p>
+					  <pre><code class="java" data-trim contenteditable>
+
+package myPackage
+
+import myPackage.mySubPackage
+import java.util.Objects
+
+class Person {
+
+  private String givenName  = null ;
+  private String familyName = null ;
+
+  public Person( givenName : String , familyName : String ) {
+    this.givenName = givenName ;
+    this.familyName = familyName ;
+  }
+
+  public String getGivenName() {
+    return this.givenName ;
+  }
+
+  public String getFamilyName() {
+    return this.familyName ;
+  }
+
+  public String toString() {
+    return this.givenName + " " + this.familyName ;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(this.firstName, this.lastName);
+  }
+
+  public boolean equals( Object aThat ) {
+    boolean isEqual = true ;
+    if( aThat == null ) {
+      isEquals = false ;
+    } else {
+      if ( this != aThat ) {
+        if ( !(aThat instanceof Person) ) {
+          isEquals = false ;
+        } else {
+          Person that = (Person)aThat;
+          if( that.hashCode() != hashCode() ) {
+            isEquals = false ;
+          }
+        }
+      }
+    }
+    return isEqual
+  }
+
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <p>Scala Bean</p>
+          <pre><code class="scala" data-trim contenteditable>
+package myPackage
+
+import myPackage.mySubPackage
+
+case class Person ( val givenName : String , val familyName : String ) {
+  def toString() : String = {
+    s"${givenName} ${familyName}"
+  }
+}
+          </code></pre>
+        </section>
+      </section>
+
+      <section>Invoking code through main</section>
+      <section>Loops</section>
+      <section>Switch v.s. Match</section>
+      <section>Exceptions and Try</section>
+      <section>null and Option</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
