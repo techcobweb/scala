@@ -2,7 +2,7 @@
 
 This material relates to learning about and messing around with Scala
 
-- Presentation is [here](./presentations/session-01/index.html)
+- Presentation is [here](https://techcobweb.github.io/scala/presentations/session-01/index.html)
 
 # Where to start
 
