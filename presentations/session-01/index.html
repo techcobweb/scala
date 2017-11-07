@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/league.css">
 
 
 		<!-- Theme used for syntax highlighting of code -->
@@ -25,20 +25,25 @@
 	<body>
 		<div class="reveal" >
 			<div class="slides" >
-        <section data-markdown>
-          <p>Comparison of Scala with Java</p>
+
+        <section data-background="./images/abstract_wall.png">
+          <img src="./images/scala_logo.png" alt="Scala" />
+        </section>
+
+        <section>
+          <p>Scala with some comparisons to Java</p>
         </section>
 				<section>
           <section>
-            <h4>The Basics</h4>
+            <p>The Basics</p>
           </section>
 
 
         <section>
-          <h4>Package</h4>
+          <p>Package</p>
           <p>Java</p>
-          <pre><code class="java small-code" >
-package myPackage
+          <pre><code class="java">
+package myPackage ;
           </code></pre>
           <p>Scala</p>
           <pre><code class="scala" >
@@ -47,7 +52,7 @@ package myPackage
         </section>
 
         <section>
-          <h4>Folder structure</h4>
+          <p>Folder structure</p>
           <ul>
             <li>Java:</li>
             <p>Folder structure matches package structure</p>
@@ -58,12 +63,12 @@ package myPackage
         </section>
 
         <section>
-          <h4>Imports</h4>
+          <p>Imports</p>
           <p>Java</p>
           <pre><code class="java"  >
-import java.util.Map
-import java.util.List
-import java.io.*
+import java.util.Map  ;
+import java.util.List ;
+import java.io.*      ;
           </code></pre>
           <p>Scala</p>
           <pre><code class="scala"  >
@@ -72,27 +77,29 @@ import java.util.List
 import java.io._
 import java.lang.reflect.{Member,Field,Method}
           </code></pre>
+          <p>Scala imports can occur inside a function/closure too!</p>
         </section>
 
 
         <section>
-          <h4>Immutable variable declaration</h4>
+          <p>Immutable variable declaration</p>
           <p>Java</p>
           <pre><code class="java" >
-final String name = "Shusaku"
+final String name = "Shusaku" ;
           </code></pre>
           <p>Scala</p>
           <pre><code class="scala" >
 val name : String = "Shusaku"
           </code></pre>
+          <p>Note: Scala defaults to public scope</p>
         </section>
 
         <section>
-          <h4>Mutable variable declaration</h4>
+          <p>Mutable variable declaration</p>
           <p>Java</p>
           <pre><code class="java" >
-String name = "Shusaku"
-name = "Go Seigen"
+String name = "Shusaku" ;
+name = "Go Seigen" ;
           </code></pre>
           <p>Scala</p>
           <pre><code class="scala" >
@@ -142,10 +149,11 @@ Boolean
 
             </tbody>
           </table>
+          <p>All Scala types are instances of classes</p>
         </section>
 
         <section>
-          <h4>Comments</h4>
+          <p>Comments</p>
           <ul>
             <li>Comments are the same as in Java</li>
             <li>JavaDoc syntax is supported by ScalaDoc tool</li>
@@ -153,11 +161,11 @@ Boolean
         </section>
 
         <section>
-          <h4>Methods/Functions</h4>
+          <p>Methods/Functions</p>
           <p>Java</p>
           <pre><code class="java" >
 public int sum( int a , int b ) {
-  return a+b
+  return a+b ;
 }
           </pre></code>
           <p>Scala</p>
@@ -168,16 +176,26 @@ def sum( a: Int , b:Int ) : Int = {
           </pre></code>
         </section>
 
+        <section>
+          <p>Optional Parameters</p>
+          <p>Scala</p>
+          <pre><code class="java">
+def numberBaseConversion( num : Integer , base = 10 ) = {
+  num.toString(base)
+}
+          </pre></code>
+        </section>
+
       </section>
         <section>
           <section>
 					  <p>Java Bean</p>
 					  <pre><code class="java" data-trim contenteditable>
 
-package myPackage
+package myPackage ;
 
-import myPackage.mySubPackage
-import java.util.Objects
+import myPackage.mySubPackage ;
+import java.util.Objects ;
 
 class Person {
 
@@ -197,6 +215,7 @@ class Person {
     return this.familyName ;
   }
 
+  @Override
   public String toString() {
     return this.givenName + " " + this.familyName ;
   }
@@ -206,6 +225,7 @@ class Person {
     return Objects.hashCode(this.firstName, this.lastName);
   }
 
+  @Override
   public boolean equals( Object aThat ) {
     boolean isEqual = true ;
     if( aThat == null ) {
@@ -231,7 +251,7 @@ class Person {
 
         <section>
           <p>Scala Bean</p>
-          <pre><code class="scala" data-trim contenteditable>
+          <pre><code class="scala" contenteditable>
 package myPackage
 
 import myPackage.mySubPackage
@@ -245,11 +265,100 @@ case class Person ( val givenName : String , val familyName : String ) {
         </section>
       </section>
 
-      <section>Invoking code through main</section>
+      <section>
+        <p>Structure</p>
+
+      <section>
+        <p>Traits</p>
+        <pre><code class="scala" contenteditable>
+package myPackage
+
+import myPackage.mySubPackage
+
+trait Animal {
+  def getLegCount() : Int
+}
+
+class Dog extends Animal {
+  override def getLegCount() : Int = {
+    4
+  }
+}
+        </code></pre>
+        <p>Note: It's OK having traits and classes in the same source file</p>
+      </section>
+
+      <section>
+        <p>Chained Constructors</p>
+        <pre><code class="scala" contenteditable>
+package myPackage
+
+import myPackage.mySubPackage
+
+abstract class Pet( license : LicenseID ) {
+  ...
+}
+
+class Dog( license : LicenseID ) extends Animal( license ) {
+  ...
+}
+        </code></pre>
+        <p>Note: It's OK having two classes in the same source file</p>
+      </section>
+
+      <section>
+        <p>Companion Objects</p>
+        <pre><code class="scala" contenteditable>
+class MyClass {
+  println( MY_CONSTANT )
+}
+
+object MyClass {
+  val MY_CONSTANT = "hello world"
+}
+        </code></pre>
+      </section>
+
+      <section>
+        <p>Companion Objects can implement interfaces</p>
+        <pre><code class="scala" contenteditable>
+trait NamedThing {
+  def getName() : String
+}
+
+object MyClass extends NamedThing {
+  override def getName() : String = {
+    "hello world"
+  }
+}
+        </code></pre>
+      </section>
+
+      </section>
+
+      <section>
+        <p>Invoking code through main</p>
+        <pre><code class="scala" contenteditable>
+object MyObject {
+  def main( args : String* ) : Unit = {
+    println( "hello world" )
+  }
+}
+
+MyObject.main("go")
+        </code></pre>
+      </section>
+    </section>
+
+    <section>
+      <p>Session 2 topics</p>
+      <section>Lists, Seq, Map</section>
       <section>Loops</section>
-      <section>Switch v.s. Match</section>
-      <section>Exceptions and Try</section>
+      <section>Match</section>
       <section>null and Option</section>
+      <section>Exceptions and Try</section>
+    </section>
+
 			</div>
 		</div>
 
