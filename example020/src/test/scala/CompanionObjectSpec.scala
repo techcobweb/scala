@@ -51,4 +51,3 @@ class CompanionObjectSpec extends FeatureSpec with GivenWhenThen {
     }
   }
 }
-

@@ -35,12 +35,12 @@
         </section>
 				<section>
           <section>
-            <p>The Basics</p>
+            <h2>The Basics</h2>
           </section>
 
 
         <section>
-          <p>Package</p>
+          <h2>Package</h2>
           <p>Java</p>
           <pre><code class="java">
 package myPackage ;
@@ -52,7 +52,7 @@ package myPackage
         </section>
 
         <section>
-          <p>Folder structure</p>
+          <h2>Folder structure</h2>
           <ul>
             <li>Java:</li>
             <p>Folder structure matches package structure</p>
@@ -63,7 +63,7 @@ package myPackage
         </section>
 
         <section>
-          <p>Imports</p>
+          <h2>Imports</h2>
           <p>Java</p>
           <pre><code class="java"  >
 import java.util.Map  ;
@@ -82,7 +82,7 @@ import java.lang.reflect.{Member,Field,Method}
 
 
         <section>
-          <p>Immutable variable declaration</p>
+          <h2>Immutable variables</h2>
           <p>Java</p>
           <pre><code class="java" >
 final String name = "Shusaku" ;
@@ -95,7 +95,7 @@ val name : String = "Shusaku"
         </section>
 
         <section>
-          <p>Mutable variable declaration</p>
+          <h2>Mutable variables</h2>
           <p>Java</p>
           <pre><code class="java" >
 String name = "Shusaku" ;
@@ -113,7 +113,7 @@ var name = "Shusaku"
         </section>
 
         <section>
-          <p>Primitive Type Equivalents</p>
+          <h2>Primitive Type Equivalents</h2>
           <table width="100%">
             <thead>
               <tr>
@@ -149,11 +149,16 @@ Boolean
 
             </tbody>
           </table>
-          <p>All Scala types are instances of classes</p>
+          <p>All Scala types are objects</p>
         </section>
 
         <section>
-          <p>Comments</p>
+          <h2>Comments</h2>
+          <pre><code class="scala" >
+var wood = "kaya" // Used for making Go boards
+/* This is a comment style too */
+/** so is this **/
+          </code></pre>
           <ul>
             <li>Comments are the same as in Java</li>
             <li>JavaDoc syntax is supported by ScalaDoc tool</li>
@@ -161,7 +166,7 @@ Boolean
         </section>
 
         <section>
-          <p>Methods/Functions</p>
+          <h2>Methods/Functions</h2>
           <p>Java</p>
           <pre><code class="java" >
 public int sum( int a , int b ) {
@@ -177,7 +182,7 @@ def sum( a: Int , b:Int ) : Int = {
         </section>
 
         <section>
-          <p>Optional Parameters</p>
+          <h2>Optional Parameters</h2>
           <p>Scala</p>
           <pre><code class="java">
 def numberBaseConversion( num : Integer , base = 10 ) = {
@@ -189,7 +194,7 @@ def numberBaseConversion( num : Integer , base = 10 ) = {
       </section>
         <section>
           <section>
-					  <p>Java Bean</p>
+					  <h2>Java Bean</h2>
 					  <pre><code class="java" data-trim contenteditable>
 
 package myPackage ;
@@ -250,13 +255,15 @@ class Person {
         </section>
 
         <section>
-          <p>Scala Bean</p>
+          <h2>Scala Case Class</h2>
           <pre><code class="scala" contenteditable>
 package myPackage
 
 import myPackage.mySubPackage
 
-case class Person ( val givenName : String , val familyName : String ) {
+case class Person ( val givenName : String
+                  , val familyName : String
+                  ) {
   def toString() : String = {
     s"${givenName} ${familyName}"
   }
@@ -266,11 +273,13 @@ case class Person ( val givenName : String , val familyName : String ) {
       </section>
 
       <section>
-        <p>Structure</p>
+        <section>
+          <h2>Structure</h2>
+        </section>
 
-      <section>
-        <p>Traits</p>
-        <pre><code class="scala" contenteditable>
+        <section>
+          <h2>Traits</h2>
+          <pre><code class="scala" contenteditable>
 package myPackage
 
 import myPackage.mySubPackage
@@ -289,7 +298,7 @@ class Dog extends Animal {
       </section>
 
       <section>
-        <p>Chained Constructors</p>
+        <h2>Chained Constructors</h2>
         <pre><code class="scala" contenteditable>
 package myPackage
 
@@ -307,7 +316,7 @@ class Dog( license : LicenseID ) extends Animal( license ) {
       </section>
 
       <section>
-        <p>Companion Objects</p>
+        <h2>Companion Objects</h2>
         <pre><code class="scala" contenteditable>
 class MyClass {
   println( MY_CONSTANT )
@@ -320,7 +329,7 @@ object MyClass {
       </section>
 
       <section>
-        <p>Companion Objects can implement interfaces</p>
+        <h2>Objects can implement interfaces</h2>
         <pre><code class="scala" contenteditable>
 trait NamedThing {
   def getName() : String
@@ -337,7 +346,7 @@ object MyClass extends NamedThing {
       </section>
 
       <section>
-        <p>Invoking code through main</p>
+        <h2>Invoking code through main</h2>
         <pre><code class="scala" contenteditable>
 object MyObject {
   def main( args : String* ) : Unit = {
@@ -350,13 +359,58 @@ MyObject.main("go")
       </section>
     </section>
 
+
     <section>
-      <p>Session 2 topics</p>
-      <section>Lists, Seq, Map</section>
-      <section>Loops</section>
-      <section>Match</section>
-      <section>null and Option</section>
-      <section>Exceptions and Try</section>
+      <h2>Practical</h2>
+      <ul>
+        <li>Using this site : <a href="https://scalafiddle.io/">https://scalafiddle.io/</a></li>
+        <li>Write a hello world program</li>
+        <li>Write a function which calculates the area of a square/rectangle/circle/triangle/shape</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Homework</h2>
+      <p>Follow the <a>install instructions - coming soon</a> to get a Dev environment installed</p>
+    </section>
+
+    <section>
+      <h2>Session 2 topics</h2>
+      <ul>
+        <li>Development environment</li>
+        <li>TDD specs</li>
+        <li>Generics</li>
+        <li>Lists, Seq, Map</li>
+        <li>Loops</li>
+        <li>Match</li>
+        <li>null and Option</li>
+        <li>Exceptions and Try</li>
+        <li>Practical</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Session 3 topics</h2>
+      <ul>
+        <li>Mix-in inheritance</li>
+        <li>HOFs and anonymous functions</li>
+        <li>Tail end recursion optionization</li>
+        <li>Practical</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Session 4 topics</h2>
+      <ul>
+        <li>Define variables with def</li>
+        <li>Raw Strings</li>
+        <li>Tuples</li>
+        <li>Lazy</li>
+        <li>Package Objects</li>
+        <li>Breakable... break</li>
+        <li>Sealed</li>
+        <li>Practical</li>
+      </ul>
     </section>
 
 			</div>
