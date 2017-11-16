@@ -32,6 +32,8 @@
 
         <section>
           <p>Scala with some comparisons to Java</p>
+          <p></p>
+          <p>(Use space bar to move to the next slide, or use the arrows)</p>
         </section>
 				<section>
           <section>
@@ -182,12 +184,26 @@ def sum( a: Int , b:Int ) : Int = {
         </section>
 
         <section>
-          <h2>Optional Parameters</h2>
+          <h2>Optional Parameters/Defaulted values</h2>
           <p>Scala</p>
-          <pre><code class="java">
-def numberBaseConversion( num : Integer , base = 10 ) = {
+          <pre><code class="scala">
+def numberBaseConversion( num : Int , base = 10 ) = {
   num.toString(base)
 }
+          </pre></code>
+        </section>
+
+        <section>
+          <h2>Calling with named parameters</h2>
+          <p>Scala</p>
+          <pre><code class="scala">
+def outputRecord( a : Int , b : Int = 10 , c : Int = 20) = {
+  num.toString(base)
+}
+
+outputRecord( a = 20 , b = 16 )
+outputRecord( 20 , c = 30 )
+outputRecord( 15 )
           </pre></code>
         </section>
 
@@ -329,6 +345,43 @@ object MyClass {
       </section>
 
       <section>
+        <h2>Extend multiple traits</h2>
+        <p>Using 'extends' and 'with'</p>
+        <pre><code class="scala" contenteditable>
+trait Shape {
+  def areaInCentimetersSquared() : Float
+}
+trait Polygon {
+  def getPoints() : Seq[(x,y)]
+}
+class Triangle extends Shape with Polygon {
+  ...
+}
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Mix-in inheritance</h2>
+        <pre><code class="scala" contenteditable>
+abstract class A {
+  val message: String
+}
+class B extends A {
+  val message = "I'm an instance of class B"
+}
+trait C extends A {
+  def loudMessage = message.toUpperCase()
+}
+class D extends B with C
+
+val d = new D
+d.message  // I'm an instance of class B
+d.loudMessage  // I'M AN INSTANCE OF CLASS B
+        </code></pre>
+        <p>Example taken from <a href="https://docs.scala-lang.org/tour/mixin-class-composition.html">here</a></p>
+      </section>
+
+      <section>
         <h2>Objects can implement interfaces</h2>
         <pre><code class="scala" contenteditable>
 trait NamedThing {
@@ -359,7 +412,6 @@ MyObject.main("go")
       </section>
     </section>
 
-
     <section>
       <h2>Practical</h2>
       <ul>
@@ -368,6 +420,8 @@ MyObject.main("go")
         <li>Write a function which calculates the area of a square/rectangle/circle/triangle/shape</li>
       </ul>
     </section>
+
+
 
     <section>
       <h2>Homework</h2>
@@ -392,7 +446,8 @@ MyObject.main("go")
     <section>
       <h2>Session 3 topics</h2>
       <ul>
-        <li>Mix-in inheritance</li>
+
+
         <li>HOFs and anonymous functions</li>
         <li>Tail end recursion optionization</li>
         <li>Practical</li>
@@ -403,12 +458,15 @@ MyObject.main("go")
       <h2>Session 4 topics</h2>
       <ul>
         <li>Define variables with def</li>
+        <li>Pattern Matching</li>
         <li>Raw Strings</li>
         <li>Tuples</li>
         <li>Lazy</li>
         <li>Package Objects</li>
         <li>Breakable... break</li>
         <li>Sealed</li>
+        <li>Apply and Unapply</li>
+        <li>Futures</li>
         <li>Practical</li>
       </ul>
     </section>
